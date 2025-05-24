@@ -49,6 +49,11 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+# Enable Zsh completion system
+# -----------------------------------------------------------------------------
+autoload -Uz compinit
+compinit
+
 # -----------------------------------------------------------------------------
 # Zinit Annexes
 # -----------------------------------------------------------------------------
@@ -87,6 +92,28 @@ zinit light zsh-users/zsh-syntax-highlighting
 # Load the abbr plugin (synchronously)
 zinit ice lucid
 zinit light olets/zsh-abbr
+
+# -----------------------------------------------------------------------------
+# Docker & Compose auto-completion via Zinit
+# -----------------------------------------------------------------------------
+# Docker CLI completions
+zinit ice from"gh"   as"program" src"contrib/completion/zsh/_docker"
+zinit light docker/cli
+
+# docker-compose completions
+# zinit ice from"gh"   as"program" src"contrib/completion/zsh/_docker-compose"
+# zinit light docker/cli
+
+# -----------------------------------------------------------------------------
+# Docker & Compose auto-completion via Zinit
+# -----------------------------------------------------------------------------
+# Docker CLI completions
+# zinit ice from"gh" as"completion" pick"contrib/completion/zsh/_docker"
+# zinit load docker/cli
+
+# docker-compose completions
+zinit ice from"gh" as"completion" pick"contrib/completion/zsh/_docker-compose"
+zinit load docker/cli
 
 # Re-bind space to self-insert so abbr can hook it
 # zle -N self-insert _zsh_abbr_self_insert
