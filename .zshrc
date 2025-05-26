@@ -25,6 +25,11 @@ fi
 # -----------------------------------------------------------------------------
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 
+# -----------------------------------------------------------------------------
+# Go PATH exports
+# -----------------------------------------------------------------------------
+export PATH=$PATH:$(go env GOPATH)/bin
+
 # Whether to add default bindings (expand on SPACE, expand and accept on ENTER,
 # add CTRL for normal SPACE/ENTER; in incremental search mode expand on CTRL+SPACE)
 # (default true)
@@ -127,6 +132,8 @@ zinit load docker/cli
 # -----------------------------------------------------------------------------
 
 # run `abbr list` to see all abbreviations
+# run `abbr erase` to erase all abbreviations
+# run `abbr add -U <alias> <command>` to add an abbreviation
 
 # Git abbreviations
 # abbr add -U g='git '                    # Basic git command
@@ -143,12 +150,18 @@ zinit load docker/cli
 
 # PNPM abbreviations
 # abbr add -U pi='pnpm install '          # Install dependencies
-# abbr add -U pid='pnpm install dev '     # Install dev dependencies
+# abbr add -U pid='pnpm install && pnpm dev '     # Install dev dependencies
 # abbr add -U pd='pnpm dev '              # Run dev server
 
 # Utility abbreviations
 # abbr add -U cl='clear'                  # Clear screen
 # abbr add -U csr='cursor'                # Open Cursor IDE
+
+# -----------------------------------------------------------------------------
+# Aliases Configuration
+# -----------------------------------------------------------------------------
+# This section contains command aliases for frequently used commands
+# -----------------------------------------------------------------------------
 
 # -----------------------------------------------------------------------------
 # Powerlevel10k Configuration
