@@ -152,10 +152,19 @@ zinit load docker/cli
 # abbr add -U pi='pnpm install '          # Install dependencies
 # abbr add -U pid='pnpm install && pnpm dev '     # Install dev dependencies
 # abbr add -U pd='pnpm dev '              # Run dev server
+# abbr add -U pb='pnpm build'
+
+# Bun abbreviations
+# abbr add -U bi='bun install '
+# abbr add -U bid='bun install && bun dev'
+# abbr add -U bd='bun dev '
+# abbr add -U bb='bun build '
+
 
 # Utility abbreviations
 # abbr add -U cl='clear'                  # Clear screen
 # abbr add -U csr='cursor'                # Open Cursor IDE
+
 
 # -----------------------------------------------------------------------------
 # Aliases Configuration
@@ -216,3 +225,10 @@ function vi-jk-escape() {
 zle -N vi-jk-escape
 
 bindkey -M viins 'jk' vi-jk-escape
+# bun completions
+[ -s "/Users/haikaltahar/.bun/_bun" ] && source "/Users/haikaltahar/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
